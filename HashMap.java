@@ -1,6 +1,6 @@
 public class HashMap<K extends Object, V extends Object> {
-    // Creating a class which stores the key, value, and pointer to next
-
+    
+    // Creating a class that stores the key, value, and pointer to next
     private KeyValue<K,V>[] value;
     private int len;
 
