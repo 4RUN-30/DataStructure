@@ -1,27 +1,27 @@
-public class HashMap<K extends Object,V extends Object> {
-    // Creating a class which stores key, value and pointer to next
+public class HashMap<K extends Object, V extends Object> {
+    // Creating a class which stores the key, value, and pointer to next
 
     private KeyValue<K,V>[] value;
     private int len;
 
-    // Default constructor create a hashmap of size 16
+    // Default constructor creates a hashmap of size 16
     public HashMap(){
         value = new KeyValue[16];
         this.len = 0;
     }
 
-    // parameterised constructor creates a hashmap size of users wish
+    //parameterized constructor creates a hashmap size of users' wish
     public HashMap(int capacity){
         value = new KeyValue[capacity];
         this.len = 0;
     }
 
-    // function used to hash the key which has time complexity of O(1)
+    // function used to hash the key which has a time complexity of O(1)
     private int hashFunction(K k) {
         return Math.abs(k.hashCode()) % this.value.length;
     }
 
-    // Adding a key value pair which has time complexity of O(1) (but O(n) at worst case which is rare)
+    // Adding a key-value pair which has time complexity of O(1) (but O(n) at worst case which is during collisions)
     public boolean put(K key,V value){
         int hashIndex = hashFunction(key);
         KeyValue keyValue = new KeyValue(key,value);
@@ -37,7 +37,7 @@ public class HashMap<K extends Object,V extends Object> {
         return true;
     }
 
-    // Searching a value based on key which has time complexity of O(1) (but O(n) at worst case which is rare)
+    // Searching a value based on a key that has a time complexity of O(1) (but O(n) at worst case which is during collision)
     public V get(K key){
         int hashIndex = hashFunction(key);
         KeyValue keyValue = this.value[hashIndex];
@@ -53,7 +53,7 @@ public class HashMap<K extends Object,V extends Object> {
         return null;
     }
 
-    // Deleting key value pair from the hashmap which has time complexity of O(1) (but O(n) at worst case which is rare)
+    // Deleting key value pair from the hashmap which has a time complexity of O(1) (but O(n) at the worst case which is during collision)
     public boolean delete(K key){
         int hashIndex = hashFunction(key);
         KeyValue keyValue = this.value[hashIndex];
